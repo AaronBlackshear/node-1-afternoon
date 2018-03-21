@@ -1,14 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const messages = require('./controllers.messages.controller');
+const messages = require('./controllers/messages_controller');
 app.use(bodyParser.json());
 const port = 3000;
 
     const messageBaseUrl = "/api/messages";
     app.post(messageBaseUrl, messages.create);
 
-    app.get(messageBaseUrl, messages.post);
+    app.get(messageBaseUrl, messages.get);
 
     app.put(`${messageBaseUrl}/:id`, messages.update);
 

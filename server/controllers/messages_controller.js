@@ -5,11 +5,11 @@ module.exports = {
 
     create: (req,res) => {
         const { text,time } = req.body;
-        messages.push( id,text,time );
+        messages.push( {id,text,time} );
         id++;
         res.status(200).send(messages);
     },
-    read: ( req,res ) => {
+    get: ( req,res ) => {
         res.status(200).send(messages)
     },
     update: ( req,res ) => {
@@ -27,7 +27,7 @@ module.exports = {
     delete: (req,res) => {
         const deleteId = req.params.id;
         messageIndex = messages.findIndex(message => message.id == deleteId);
-        message.splice(messageIndex,1);
+        messages.splice(messageIndex,1);
         res.status(200).send(messages);
     }
 
