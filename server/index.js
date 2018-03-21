@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const messages = require('./controllers/messages_controller');
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public/build'));
 const port = 3000;
 
     const messageBaseUrl = "/api/messages";
